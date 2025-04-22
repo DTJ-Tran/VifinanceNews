@@ -1,0 +1,16 @@
+FROM python:3.11-slim
+
+
+COPY ViFinanceCrawLib/requirements.txt /
+
+RUN pip install --default-timeout=100 --no-cache-dir -r requirements.txt --prefer-binary \
+-i https://pypi.tuna.tsinghua.edu.cn/simple
+
+USER daemon
+
+LABEL version="1.0"
+LABEL description="Base image for Python in the ViFinanceNews Docker Project"
+LABEL maintainer="Dat Tran Tien"
+
+
+# HEALTHCHECK NONE
