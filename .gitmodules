@@ -1,6 +1,3 @@
-[submodule "ViFinanceCrawLib"]
-	path = ViFinanceCrawLib
-	url = https://github.com/DTJ-Tran/ViFinanceCrawLib.git
 [submodule "Authentication"]
 	path = Authentication
 	url = https://github.com/cocooda/WebApp.git
