@@ -1,0 +1,74 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script src="js/auth.js" defer></script> <!-- Your external form logic -->
+</head>
+<body>
+  <h2>Register</h2>
+
+  <form id="register-form" enctype="multipart/form-data">
+    <input type="text" id="userName" name="userName" placeholder="Username" required />
+    <input type="email" id="email" name="email" placeholder="Email" required />
+    <input type="password" id="password" name="password" placeholder="Password" required />
+
+    <label for="avatar">Avatar:</label>
+    <input type="file" id="avatar" name="avatar" accept="image/*" />
+
+    <textarea id="bio" name="bio" placeholder="Bio"></textarea>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <!-- Google Sign-In button -->
+  <div id="google-login-btn"></div>
+
+  <!-- Google Sign-In logic -->
+  <script>
+    function initGapi() {
+      gapi.load("auth2", function () {
+        gapi.auth2.init({
+          client_id: '730255015972-m08dadflh0eatde4ij0tgacnb556939c.apps.googleusercontent.com'
+        }).then(function () {
+          gapi.signin2.render("google-login-btn", {
+            onsuccess: onSignIn,
+            theme: "dark",
+            longtitle: true,
+          });
+        });
+      });
+    }
+
+    async function onSignIn(googleUser) {
+      const profile = googleUser.getBasicProfile();
+      const googleEmail = profile.getEmail();
+
+      try {
+        const response = await fetch("/api/google-signin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: googleEmail }),
+          credentials: "include",
+        });
+
+        const data = await response.json();
+
+        if (data.exists) {
+          alert("Login successful!");
+          window.location.href = "/index.html";
+        } else {
+          window.location.href = "/profile-setup.html?email=" + encodeURIComponent(googleEmail);
+        }
+      } catch (error) {
+        alert("An error occurred. Please try again.");
+      }
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/api.js" async defer onload="initGapi()"></script>
+</body>
+</html>

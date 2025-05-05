@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VI Finance News</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>VI Finance News</h1>
+        <nav>
+            <!-- Auth Section (Visible when NOT logged in) -->
+            <div id="auth-section">
+                <a href="/login.html">Login</a>
+                <a href="/register.html">Register</a>
+            </div>
+
+            <!-- User Section (Visible when logged in) -->
+            <div id="user-section" class="hidden">
+                <a href="http://localhost:6998/profile.html">
+                    <button>View Profile</button>
+                </a>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="search-link">
+        <h2>Search News</h2>
+        <a href="http://localhost:5001/static/search.html">Go to Search</a>  <!-- Link to search.html in SearchService -->
+    </section>
+
+    <script src="/js/auth.js" defer></script>
+</body>
+</html>

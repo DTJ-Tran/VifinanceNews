@@ -1,0 +1,14 @@
+com\vifinancenews\common\utilities\RedisConnection.class
+com\vifinancenews\common\config\S3Config.class
+com\vifinancenews\common\utilities\PasswordHash.class
+com\vifinancenews\common\models\Account.class
+com\vifinancenews\common\utilities\RedisCacheService.class
+com\vifinancenews\common\utilities\OTPGenerator.class
+com\vifinancenews\common\daos\IdentifierDAO.class
+com\vifinancenews\common\daos\AccountDAO.class
+com\vifinancenews\common\utilities\IDHash.class
+com\vifinancenews\common\utilities\RedisSessionManager.class
+com\vifinancenews\common\utilities\EmailUtility.class
+com\vifinancenews\common\models\Identifier.class
+com\vifinancenews\common\utilities\EmailUtility$1.class
+com\vifinancenews\common\config\DatabaseConfig.class

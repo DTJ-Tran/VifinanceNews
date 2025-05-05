@@ -1,0 +1,7 @@
+com\vifinancenews\auth\controllers\AuthController.class
+com\vifinancenews\auth\services\AuthenticationService.class
+com\vifinancenews\auth\controllers\GuestController.class
+com\vifinancenews\auth\services\AuthenticationService$LoginResult.class
+com\vifinancenews\auth\services\GoogleAuthService.class
+com\vifinancenews\Main.class
+com\vifinancenews\auth\controllers\GoogleAuthController.class
